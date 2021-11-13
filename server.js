@@ -69,7 +69,7 @@ app.get('/cheese', async (req,res) =>{
 })
 
 // Create Route
-app.post('/people', async (req,res) => {
+app.post('/cheese', async (req,res) => {
     try {
         res.json(await Cheese.create(req.body))
     } catch {
@@ -78,7 +78,7 @@ app.post('/people', async (req,res) => {
 })
 
 // Update Route
-app.put('/people/:id', async (req,res) => {
+app.put('/cheese/:id', async (req,res) => {
     try {
         res.json(await Cheese.findByIdAndUpdate(id, req.body, {new:true}))
     } catch (error) {
@@ -87,7 +87,7 @@ app.put('/people/:id', async (req,res) => {
 })
 
 // Delete Route
-app.delete('/people/:id', async (req,res) => {
+app.delete('/cheese/:id', async (req,res) => {
     try {
         res.json(await Cheese.findByIdAndDelete(id))
     } catch (error) {
