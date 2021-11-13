@@ -54,10 +54,12 @@ app.use(express.json())
 // Routes
 ///////////////////////////////
 
+// Home route
 app.get('/', (req,res) => {
-    res.redirect('/cheese')
+    res.send('<h1>Cheese API</h1>')
 })
 
+// Index Route
 app.get('/cheese', (req,res) =>{
     try {
         res.json(await Cheese.find({}))
@@ -66,6 +68,7 @@ app.get('/cheese', (req,res) =>{
     }
 })
 
+// Create Route
 app.post('/people/', (req,res) => {
     try {
         res.json(await Cheese.create(req.body))
@@ -74,6 +77,7 @@ app.post('/people/', (req,res) => {
     }
 })
 
+// Update Route
 app.put('/people/:id', (req,res) => {
     try {
         res.json(await Cheese.findByIdAndUpdate(id, req.body, {new:true}))
@@ -82,6 +86,7 @@ app.put('/people/:id', (req,res) => {
     }
 })
 
+// Delete Route
 app.delete('/people/:id', (req,res) => {
     try {
         res.json(await Cheese.findByIdAndDelete(id))
