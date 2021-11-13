@@ -60,7 +60,7 @@ app.get('/', (req,res) => {
 })
 
 // Index Route
-app.get('/cheese', (req,res) =>{
+app.get('/cheese', async (req,res) =>{
     try {
         res.json(await Cheese.find({}))
     } catch (error) {
@@ -69,7 +69,7 @@ app.get('/cheese', (req,res) =>{
 })
 
 // Create Route
-app.post('/people/', (req,res) => {
+app.post('/people', async (req,res) => {
     try {
         res.json(await Cheese.create(req.body))
     } catch {
@@ -78,7 +78,7 @@ app.post('/people/', (req,res) => {
 })
 
 // Update Route
-app.put('/people/:id', (req,res) => {
+app.put('/people/:id', async (req,res) => {
     try {
         res.json(await Cheese.findByIdAndUpdate(id, req.body, {new:true}))
     } catch (error) {
@@ -87,7 +87,7 @@ app.put('/people/:id', (req,res) => {
 })
 
 // Delete Route
-app.delete('/people/:id', (req,res) => {
+app.delete('/people/:id', async (req,res) => {
     try {
         res.json(await Cheese.findByIdAndDelete(id))
     } catch (error) {
