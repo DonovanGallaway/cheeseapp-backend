@@ -79,6 +79,7 @@ app.post('/cheese', async (req,res) => {
 
 // Update Route
 app.put('/cheese/:id', async (req,res) => {
+    const id = req.params.id
     try {
         res.json(await Cheese.findByIdAndUpdate(id, req.body, {new:true}))
     } catch (error) {
@@ -88,6 +89,7 @@ app.put('/cheese/:id', async (req,res) => {
 
 // Delete Route
 app.delete('/cheese/:id', async (req,res) => {
+    const id = req.params.id
     try {
         res.json(await Cheese.findByIdAndDelete(id))
     } catch (error) {
